@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CountDownCounter</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="title">Title</string>
+    <string name="count_down_title_hint">Countdown event title</string>
+    <string name="set_time">Set time</string>
+    <string name="set_date">Set Date</string>
 </resources>
