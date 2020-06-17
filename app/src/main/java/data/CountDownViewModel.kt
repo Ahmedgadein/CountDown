@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class CountDownViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository:Repository
-    private val allCountDown: LiveData<List<CountDown>>
+     val allCountDown: LiveData<List<CountDown>>
 
     init {
         val dao:CountDownDao = CountDownDatabase.getDataBaseInstance(application).getDao()
