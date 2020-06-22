@@ -1,31 +1,37 @@
 package adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countdowncounter.R
-import data.CountDown
+import data.model.CountDown
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
-class CountdownListAdapter(val context: Context,
-                           var mList: List<CountDown>): RecyclerView.Adapter<CountdownListAdapter.CounterHolder>(){
+class CountdownListAdapter(val context: Context): RecyclerView.Adapter<CountdownListAdapter.CounterHolder>(){
 
     val inflater = LayoutInflater.from(context)
+    private var mList = emptyList<CountDown>()
+
+    fun setCounters(counters:List<CountDown>) {
+        mList = counters
+        Log.d("Adapter", "Data: " + mList)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CounterHolder {
         val view = inflater.inflate(R.layout.recyclerview_item,parent,false)
         return  CounterHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return mList.size
-    }
+    override fun getItemCount() = mList.size
 
     override fun onBindViewHolder(holder: CounterHolder, position: Int) {
-        val item = mList.get(position)
+        val item = mList[position]
+        Log.d("Adapter", "Binding countdown: " + item)
         holder.bind(item)
     }
 

@@ -1,4 +1,4 @@
-package data
+package data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -8,21 +8,21 @@ import java.util.*
 
 @Entity(tableName = "countdown_table")
 data class CountDown(
+
     @PrimaryKey
-    @ColumnInfo(name = "id")
-    val uuid: UUID = UUID.randomUUID(),
+    var uuid:String = UUID.randomUUID().toString(),
 
     @ColumnInfo(name = "date")
-    val date:Date = Date(),
+    var date:String = Date().toString(),
 
     @ColumnInfo(name = "title")
-    val title: String = "title"){
+    var title: String = "title"){
 
     fun getFormatedDate():String{
 
         //e.g: Mon: 16/06/2020, 16:16"
         val format = SimpleDateFormat("EEE: dd/MM/yyyy, HH:mm")
-        val dateFormat: String = format.format(date)
+        val dateFormat: String = format.format(Date(date))
 
         return dateFormat;
     }

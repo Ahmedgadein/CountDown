@@ -24,6 +24,7 @@ android {
     }
 
 }
+apply plugin: "kotlin-kapt"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -39,4 +40,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
+    implementation 'androidx.room:room-coroutines:2.1.0-alpha04'
 }

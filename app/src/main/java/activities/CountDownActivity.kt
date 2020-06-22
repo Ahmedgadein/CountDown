@@ -2,12 +2,10 @@ package activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.example.countdowncounter.R
-import data.CountDown
+import data.model.CountDown
 import fragments.CountDownFragment
-import fragments.CountDownListFragment
 
 class CountDownActivity : AppCompatActivity(){
 
@@ -17,7 +15,8 @@ class CountDownActivity : AppCompatActivity(){
 
         val fragmentmanger: FragmentManager = supportFragmentManager
         val fragment = fragmentmanger
-            .findFragmentById(R.id.activity_countdown_container) ?: CountDownFragment.newInstance(CountDown().uuid)
+            .findFragmentById(R.id.activity_countdown_container) ?: CountDownFragment.newInstance(
+            CountDown().uuid.toString())
         fragmentmanger.beginTransaction().add(R.id.activity_countdown_container,fragment).commit()
     }
 
